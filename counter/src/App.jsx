@@ -9,7 +9,19 @@ function App() {
 
   const addValue = () => {
     if (counter < 20) {
-      setCounter(counter + 1);
+      // If you want to update like 4 number at once, this will not work and it updates in batches
+      // as it is doing the same thing, the useState will send this in batches and will only update it once
+      // setCounter(counter + 1);
+      // setCounter(counter + 1);
+      // setCounter(counter + 1);
+      // setCounter(counter + 1);
+
+      //Update like 4 number at once
+      // it is a callback function which fetches the previos number and then updates it accordingly/
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
+      setCounter(prevCounter => prevCounter + 1);
     }
   }
 
